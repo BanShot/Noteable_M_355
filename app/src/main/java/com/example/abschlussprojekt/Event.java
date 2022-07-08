@@ -1,5 +1,7 @@
 package com.example.abschlussprojekt;
 
+import io.realm.RealmObject;
+
 public class Event extends RealmObject {
     String title;
     String description;

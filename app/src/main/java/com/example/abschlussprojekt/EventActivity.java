@@ -1,13 +1,15 @@
 package com.example.abschlussprojekt;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.button.MaterialButton;
+
+import io.realm.Realm;
 
 public class EventActivity extends AppCompatActivity {
 
@@ -18,7 +20,7 @@ public class EventActivity extends AppCompatActivity {
 
         EditText titleInput = findViewById(R.id.titleinput);
         EditText descriptionInput = findViewById(R.id.descriptioninput);
-        MaterialButton saveBtn = findViewById(R.id.addneweventbtn);
+        MaterialButton saveBtn = findViewById(R.id.savenbtn);
 
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();

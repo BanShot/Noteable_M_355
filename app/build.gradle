@@ -1,10 +1,12 @@
 plugins {
     id 'com.android.application'
-
 }
+
+apply plugin: 'realm-android'
 
 android {
     compileSdk 32
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.abschlussprojekt"
@@ -28,6 +30,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+
+//realm {
+  //  syncEnabled = true
+//}
 
 dependencies {
 
@@ -54,4 +60,6 @@ dependencies {
 
     //Rounded ImageView
     implementation "com.makeramen:roundedimageview:2.3.0"
+
+    implementation 'io.realm:realm-gradle-plugin:10.10.1'
 }
