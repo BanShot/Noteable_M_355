@@ -51,7 +51,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-                        if(item.getTitle().equals("Delete")){
+                        if(menuItem.getTitle().equals("Delete")){
                             // delete the event
                             Realm realm = Realm.getDefaultInstance();
                             realm.beginTransaction();
