@@ -1,0 +1,44 @@
+package com.example.abschlussprojekt;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.material.button.MaterialButton;
+
+public class EventActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_event);
+
+        EditText titleInput = findViewById(R.id.titleinput);
+        EditText descriptionInput = findViewById(R.id.descriptioninput);
+        MaterialButton saveBtn = findViewById(R.id.addneweventbtn);
+
+        Realm.init(getApplicationContext());
+        Realm realm = Realm.getDefaultInstance();
+
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String title = titleInput.getText().toString();
+                String description = descriptionInput.getText().toString();
+                long createdTime = System.currentTimeMillis();
+
+                realm.beginTransaction();
+                Event event = realm.createObject(Event.class);
+                event.setTitle(title);
+                event.setDescription(description);
+                event.setCreatedTime(createdTime);
+                realm.commitTransaction();
+                Toast.makeText(getApplicationContext(),"Nicht gespeichert", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+    }
+}
