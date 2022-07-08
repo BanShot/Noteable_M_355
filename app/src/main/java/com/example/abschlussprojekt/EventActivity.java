@@ -1,6 +1,7 @@
 package com.example.abschlussprojekt;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -35,10 +36,11 @@ public class EventActivity extends AppCompatActivity {
                 realm.beginTransaction();
                 Event event = realm.createObject(Event.class);
                 event.setTitle(title);
+                Log.d("Tag","Titel: " + title);
                 event.setDescription(description);
                 event.setCreatedTime(createdTime);
                 realm.commitTransaction();
-                Toast.makeText(getApplicationContext(),"Nicht gespeichert", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Gespeichert", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
